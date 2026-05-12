@@ -1,0 +1,58 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Run Unit Tests
+      run: echo "Running unit tests..."
+
+    - name: Run Integration Tests
+      run: echo "Running integration tests..."
+
+    - name: Build Application
+      run: echo "Building project..."
+
+  release:
+
+    needs: test
+
+    if: github.ref == 'refs/heads/main'
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Generate Artifact
+      run: |
+        mkdir artifact
+        echo "Warehouse IT Asset Tracking System" > artifact/app.txt
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-artifact
+        path: artifact/
