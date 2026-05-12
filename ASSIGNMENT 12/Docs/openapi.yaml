@@ -1,0 +1,21 @@
+openapi: 3.0.0
+info:
+  title: Warehouse IT Asset API
+  version: 1.0.0
+
+paths:
+
+  /api/assets:
+    get:
+      summary: Fetch all assets
+
+    post:
+      summary: Create asset
+
+  /api/users:
+    get:
+      summary: Fetch users
+
+  /api/reports:
+    get:
+      summary: Fetch reports
