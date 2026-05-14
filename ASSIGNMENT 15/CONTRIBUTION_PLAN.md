@@ -78,3 +78,21 @@ Example:
 
 ```bash
 git checkout -b fix-validation
+
+## Step 4
+
+Keep pull requests small and focused.
+
+## Step 5
+
+Run tests and ensure CI/CD checks pass before submitting PRs.
+
+## Step 6
+
+Respond quickly to feedback and requested changes.
+
+Expected Outcomes
+Improve collaboration skills
+Learn peer-review workflows
+Gain experience with pull requests
+Practice open-source contribution standards
